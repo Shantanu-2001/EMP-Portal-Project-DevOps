@@ -10,7 +10,7 @@ pipeline
 
         registryCredential = 'DOCKERHUB'
 
-        githubCredential = 'Github-Creds'
+        githubCredential = 'none'
 
         dockerImage = ' '
 
