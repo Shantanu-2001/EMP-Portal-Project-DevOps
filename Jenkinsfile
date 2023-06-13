@@ -6,7 +6,7 @@ pipeline
 
     {
 
-        registry = "shantanurana/emp-portal-project"
+        registry = "Shantanu-2001/EMP-Portal-Project-DevOps"
 
         registryCredential = 'DOCKERHUB'
 
@@ -61,11 +61,11 @@ pipeline
 
                     //Checkout the project from GitHub
 
-                    git branch: 'dev',
+                    git branch: 'Dev',
 
                     credentialsId: githubCredential,
 
-                    url: 'insert url here.git'
+                    url: 'https://github.com/Shantanu-2001/EMP-Portal-Project-DevOps.git'
 
                 }
 
