@@ -100,7 +100,7 @@ pipeline
 					)
 				}
 			}
-		}*/
+		}
 	    stage('Static Code Checking') {
             steps {
                 script {
@@ -111,7 +111,7 @@ pipeline
                     )
                 }
             }
-        }
+        } 
 
 		stage('SonarQube Analysis')
 		{
@@ -130,7 +130,7 @@ pipeline
 			}
 		}
 	}
-}
+} */
 stage("Testing with pytest"){
                      steps{
                         script{
