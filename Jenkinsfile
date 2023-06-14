@@ -3,7 +3,7 @@ def img
 pipeline
 {
 
-   /* environment
+   /*environment
     {
 
         registry = "Shantanu-2001/EMP-Portal-Project-DevOps"
@@ -86,7 +86,7 @@ pipeline
 
         }
 
-		/*stage('Static Code Checking')
+         stage('Static Code Checking')
 		{
 			steps
 			{
@@ -142,7 +142,7 @@ stage("Testing with pytest"){
                      }     
                   }   
           }
-*/
+
 
             stage('Clean Up'){
                 steps {
