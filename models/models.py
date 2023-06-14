@@ -4,10 +4,6 @@ db = SQLAlchemy()
 
 
 class Employee(db.Model):
-    """
-    Represents an employee.
-    """
-
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
     gender = db.Column(db.String(10))
