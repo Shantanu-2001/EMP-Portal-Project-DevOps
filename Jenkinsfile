@@ -1,4 +1,4 @@
-//def img
+def img
 
 pipeline
 {
