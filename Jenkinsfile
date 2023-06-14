@@ -14,7 +14,7 @@ pipeline
 
         dockerImage = ' '
 
-        scannerHome = tool 'SonarQube Scanner 2.8'
+        scannerHome = tool 'SonarQube Scanner for Jenkins Version 2.15'
     }
 
     agent any
