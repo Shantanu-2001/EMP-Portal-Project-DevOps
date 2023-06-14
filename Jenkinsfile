@@ -130,7 +130,7 @@ pipeline
 			}
 		}
 	}
-} */
+} 
 stage("Testing with pytest"){
                      steps{
                         script{
@@ -142,6 +142,7 @@ stage("Testing with pytest"){
                      }     
                   }   
           }
+*/
 
             stage('Clean Up'){
                 steps {
@@ -159,17 +160,22 @@ stage("Testing with pytest"){
                       }
                   }
                 }
+	    
+	    stage('Push To Dockerhub'){
+              steps {
+                 script {
+                    docker.withRegistry('https://registry.hub.docker.com', registryCredential){
+                        dockerImage.push()
+                        }
+                    }
+                 }
+               }
 
-
-
-
-
-
-
-
-
-
-
+           stage('Deploy to containers'){
+              steps {
+                 sh label: '', script: "docker run -d --name ${JOB_NAME} -p 5001:5000 ${img}"
+                }
+              }
 
 
     }
