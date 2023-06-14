@@ -131,5 +131,44 @@ pipeline
 		}
 	}
 }
+stage("Testing with pytest"){
+                     steps{
+                        script{
+                          withPythonEnv('python3'){
+                             sh 'pip install pytest'
+                             sh 'pip install flask_sqlalchemy'
+                             sh 'pytest test_app.py'
+                           }
+                     }     
+                  }   
+          }
+
+            stage('Clean Up'){
+                steps {
+                  sh returnStatus: true, script: 'docker stop $(docker ps -a | grep ${JOB_NAME} | awk \'{print $1}\')'
+                  sh returnStatus: true, script: 'docker rmi $(docker images | grep ${registry} | awk \'{print $3}\') --force'
+                  sh returnStatus: true, script: 'docker rmi -f ${JOB_NAME}'
+                 }
+            }
+          stage('Build image'){
+                steps {
+                   script{
+                       img = registry + ":${env.BUILD_ID}"
+                       println("${img}")
+                       dockerImage = docker.build("${img}")
+                      }
+                  }
+                }
+
+
+
+
+
+
+
+
+
+
+
 
 
