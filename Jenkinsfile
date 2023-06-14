@@ -3,7 +3,7 @@ def img
 pipeline
 {
 
-    environment
+   /* environment
     {
 
         registry = "Shantanu-2001/EMP-Portal-Project-DevOps"
@@ -15,7 +15,7 @@ pipeline
         dockerImage = ' '
 
         scannerHome = tool 'sonar 2.15'
-    }
+    }*/
 
     agent any
 
