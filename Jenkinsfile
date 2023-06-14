@@ -14,7 +14,7 @@ pipeline
 
         dockerImage = ' '
 
-        scannerHome = tool 'SonarQube-Scanner-2.15'
+        scannerHome = tool 'sonar 2.15'
     }
 
     agent any
