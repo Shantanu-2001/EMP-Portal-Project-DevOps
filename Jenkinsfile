@@ -54,7 +54,7 @@ pipeline
 
                     git branch: 'Dev',
 
-                    credentialsId: githubCredential,
+                    credentialsId: none,
 
                     url: 'https://github.com/Shantanu-2001/EMP-Portal-Project-DevOps.git'
 
@@ -111,7 +111,7 @@ pipeline
 					withSonarQubeEnv('sonar')
 					{
 						// Run SonarQube scanner for code Analysis
-						sh '''${scannerHome}/bin/sonar-scanner \
+						sh '''${sonar 2.15}/bin/sonar-scanner \
 					        -Dsonar.projectKey=DevOps-project \
 							-Dsonar.sources=. '''
 					}
