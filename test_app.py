@@ -7,20 +7,20 @@ from app import app, db
 def client():
     app_context = app.app_context()
     app_context.push()
-    initDB()
+    init_db()
     yield app.test_client()
-    truncateDB()
+    truncate_db()
     app_context.pop()
 
 
-def initDB():
-    DATABASE = 'test_emp_db.db'
+def init_db():
+    database = 'test_emp_db.db'
     app.config.update(
-        SQLALCHEMY_DATABASE_URI='sqlite:///'+DATABASE
+        SQLALCHEMY_DATABASE_URI='sqlite:///' + database
     )
 
 
-def truncateDB():
+def truncate_db():
     with app.app_context():
         models.Employee.query.delete()
         db.session.commit()
@@ -30,7 +30,6 @@ def test_index():
     client = app.test_client()
     response = client.get('/')
     assert response.status_code == 200
-
 
 
 def test_add(client):
@@ -45,8 +44,7 @@ def test_add(client):
         assert models.Employee.query.count() == 1
 
 
-def test_edit():
-    client = app.test_client()
+def test_edit(client):
     response = client.post('/edit/0')
     assert response.status_code == 200
     assert b"Sorry, the employee does not exist." in response.data
@@ -57,3 +55,4 @@ def test_delete(client):
     response = client.post('/delete', data=test_data)
     assert response.status_code == 200
     assert b"Sorry, the employee does not exist." in response.data
+
