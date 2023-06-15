@@ -49,7 +49,7 @@ pipeline {
                 script {
                     withSonarQubeEnv('sonarqube_portal') {
                         // Run SonarQube scanner for code analysis
-                        sh '''https://plugins.jenkins.io/sonar/sonar-scanner \
+                        sh '''http://43.205.229.76:9000 \
                             -Dsonar.projectKey=DevOps-project \
                             -Dsonar.sources=. '''
                     }
