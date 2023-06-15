@@ -39,13 +39,13 @@ pipeline {
                     
                 }
             }
-        }
         post {
         always {
             // Publish pylint issues
             warningsNgParser(pattern: 'pylint.log')
         }
     }
+        }
 
         stage('SonarQube Analysis') {
             steps {
