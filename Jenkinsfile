@@ -42,7 +42,7 @@ pipeline {
             post {
                 always {
                     // Publish pylint issues
-                    recordIssues tools: [pyLint(pattern: 'pylint.log')], unhealthyTotal: 100
+                    recordIssues tools: [pyLint(pattern: 'pylint.log')], unstable: 100
                 }
             }
         }
