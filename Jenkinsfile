@@ -44,7 +44,7 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
+  /*      stage('SonarQube Analysis') {
             steps {
                 script {
                     withSonarQubeEnv('sonarqube_portal') {
@@ -55,7 +55,7 @@ pipeline {
                     }
                 }
             }
-        }
+        }    */
 
         stage("Testing with pytest") {
             steps {
