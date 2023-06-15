@@ -36,13 +36,10 @@ pipeline {
                 script {
                     // Run pylint on Python files and generate a report
                     sh 'find . -name \\*.py | xargs pylint -f parseable | tee pylint.log'
-                }
-            }
-
-            post {
-                always {
-                    // Publish pylint issues
-                    recordIssues tools: [pyLint(pattern: 'pylint.log')], unstable: 100
+                    recordIssues(
+                        tools: [pyLint(pattern: 'pylint.log')],
+                        unstableTotalAll: 100
+                     )
                 }
             }
         }
