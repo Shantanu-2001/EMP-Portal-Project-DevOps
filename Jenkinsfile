@@ -8,7 +8,7 @@ pipeline {
             description: 'Select the target cluster',
             name: 'TARGET CLUSTER'
         )
-    } 
+    }
 
     stages {
         stage('Checkout project') {
@@ -42,7 +42,7 @@ pipeline {
             post {
                 always {
                     // Publish pylint issues
-                    recordIssues tools: [pyLint(pattern: 'pylint.log')], unstableTotal: 100
+                    recordIssues tools: [pyLint(pattern: 'pylint.log')], unhealthyTotal: 100
                 }
             }
         }
