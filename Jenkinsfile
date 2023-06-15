@@ -57,7 +57,7 @@ pipeline {
             }
         }    */
 
-        stage("Testing with pytest") {
+        /*stage("Testing with pytest") {
             steps {
                 script {
                     withPythonEnv('python3') {
@@ -65,7 +65,15 @@ pipeline {
                     }
                 }
             }
+        }*/
+         stage('Testing with pytest') {
+            steps {
+                sh 'python3 -m pytest'
+                sh 'pytest test_app.py'
+            }
         }
+ 
+        
 
         stage('Clean Up') {
             steps {
