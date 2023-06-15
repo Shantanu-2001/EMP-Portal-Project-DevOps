@@ -69,7 +69,7 @@ pipeline {
          stage('Testing with pytest') {
             steps {
                 sh 'python3 -m pytest'
-                sh 'pytest test_app.py'
+                sh 'python3 test_app.py'
             }
         }
  
