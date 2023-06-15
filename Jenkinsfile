@@ -93,7 +93,11 @@ pipeline {
             }
         }*/
         stage('Build image') {
+            
+            steps{
                     image 'shantanu2001/employee_portal'
+                
+            }
           
         }
 
