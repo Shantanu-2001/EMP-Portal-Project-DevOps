@@ -49,7 +49,7 @@ pipeline {
                 script {
                     withSonarQubeEnv('sonarqube_portal') {
                         // Run SonarQube scanner for code analysis
-                        sh '''http://43.205.229.76:9000 \
+                        sh '''SonarQube Scanner \
                             -Dsonar.projectKey=DevOps-project \
                             -Dsonar.sources=. '''
                     }
