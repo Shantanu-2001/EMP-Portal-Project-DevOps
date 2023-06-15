@@ -8,7 +8,7 @@ pipeline {
             description: 'Select the target cluster',
             name: 'TARGET CLUSTER'
         )
-    }
+    } 
 
     stages {
         stage('Checkout project') {
