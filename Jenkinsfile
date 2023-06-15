@@ -83,7 +83,7 @@ pipeline {
             }
         }
 
-        stage('Build image') {
+        /*stage('Build image') {
             steps {
                 script {
                     img = registry + ":${env.BUILD_ID}"
@@ -91,7 +91,15 @@ pipeline {
                     dockerImage = docker.build("${img}")
                 }
             }
+        }*/
+        stage('Build image') { 
+            agent {
+                docker {
+                    image 'shantanu2001/employee_portal' 
+                }
+            }
         }
+
 
         stage('Push To Dockerhub') {
             steps {
