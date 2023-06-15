@@ -92,12 +92,9 @@ pipeline {
                 }
             }
         }*/
-        stage('Build image') { 
-            agent {
-                docker {
-                    image 'shantanu2001/employee_portal' 
-                }
-            }
+        stage('Build image') {
+                    image 'shantanu2001/employee_portal'
+          
         }
 
 
