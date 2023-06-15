@@ -41,8 +41,8 @@ pipeline {
             }
         post {
         always {
-            // Publish pylint issues
-            warningsNgParser(pattern: 'pylint.log')
+             // Publish pylint issues
+        recordIssues tools: [pyLint(pattern: 'pylint.log')], unstableTotalAll: 100
         }
     }
         }
