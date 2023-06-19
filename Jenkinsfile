@@ -97,7 +97,7 @@ pipeline {
                     }
                 }
             }
-        }
+        
 
         stage('Deploy to containers') {
             steps {
