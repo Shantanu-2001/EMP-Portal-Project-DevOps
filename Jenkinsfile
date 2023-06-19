@@ -82,6 +82,19 @@ pipeline {
                 sh returnStatus: true, script: 'docker rmi -f ${JOB_NAME}'
             }
         }
+        
+      stage('SonarQube Analysis') {
+            steps {
+                script {
+                    withSonarQubeEnv('sonarqube_portal') {
+                        // Run SonarQube scanner for code analysis
+                        sh '''sonar-scanner \
+                            -Dsonar.projectKey=DevOps-project \
+                            -Dsonar.sources=. '''
+                    }
+                }
+            }
+        } 
 
         /*stage('Build image') {
             steps {
