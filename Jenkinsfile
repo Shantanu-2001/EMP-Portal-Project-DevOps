@@ -1,7 +1,11 @@
 def img
 
 pipeline {
+    environment {
+        scannerHome = tool 'sonar4.8'
+    }
     agent any
+ 
     parameters {
         choice(
             choices: ['Dev', 'Prod'],
@@ -9,6 +13,9 @@ pipeline {
             name: 'TARGET CLUSTER'
         )
     }
+    
+
+
 
     stages {
         stage('Checkout project') {
