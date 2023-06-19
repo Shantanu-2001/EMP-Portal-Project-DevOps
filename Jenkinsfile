@@ -69,7 +69,7 @@ pipeline {
                     }
                 }
             }
-        
+        }
 
         stage('Clean Up') {
             steps {
@@ -101,9 +101,6 @@ pipeline {
 
         stage('Deploy to containers') {
             steps {
-                sh label: '', script: "docker run -d --name ${JOB_NAME} -p 5001:5000 ${img}"
+                sh label: '', script: "docker run -d --name ${JOB_NAME} -p 5001:5000 \"${img}\""
             }
-        }
-    }
-}
-}
+       
