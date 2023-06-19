@@ -95,9 +95,10 @@ pipeline {
                 script {
                     withSonarQubeEnv('sonarqube_portal') {
                         // Run SonarQube scanner for code analysis
-                        sh '''sonar-scanner \
-                            -Dsonar.projectKey=DevOps-project \
-                            -Dsonar.sources=. '''
+                        
+                        sh '''${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=DevOps-Project \
+                            -Dsonar.sources=.''
                     }
                 }
             }
