@@ -93,7 +93,7 @@ pipeline {
       stage('SonarQube Analysis') {
             steps {
                 script {
-                    withSonarQubeEnv('sonar') {
+                    withSonarQubeEnv('sonarqube_portal') {
                         // Run SonarQube scanner for code analysis
                         sh '''sonar-scanner \
                             -Dsonar.projectKey=DevOps-project \
