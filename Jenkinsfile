@@ -2,7 +2,7 @@ def img
 
 pipeline {
     environment {
-        scannerHome = tool 'sonar4.8'
+        scannerHome = tool 'sonar'
     }
     agent any
  
