@@ -3,7 +3,7 @@ def img
 pipeline {
     environment {
         scannerHome = tool 'sonar'
-    }
+    } 
     agent any
 
     parameters {
