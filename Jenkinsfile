@@ -97,10 +97,12 @@ pipeline {
                     }
                 }
             }
-        
-
-        stage('Deploy to containers') {
-            steps {
-                sh label: '', script: "docker run -d --name ${JOB_NAME} -p 5001:5000 \"${img}\""
-            }
         }
+    }
+
+    stage('Deploy to containers') {
+        steps {
+            sh label: '', script: "docker run -d --name ${JOB_NAME} -p 5001:5000 \"${img}\""
+        }
+    }
+}
