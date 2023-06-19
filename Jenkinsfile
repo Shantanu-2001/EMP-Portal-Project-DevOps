@@ -102,7 +102,7 @@ pipeline {
                     }
                 }
             }
-        } 
+       
 
         /*stage('Build image') {
             steps {
