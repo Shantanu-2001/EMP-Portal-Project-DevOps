@@ -5,7 +5,7 @@ pipeline {
         scannerHome = tool 'sonar'
     }
     agent any
- 
+
     parameters {
         choice(
             choices: ['Dev', 'Prod'],
@@ -13,9 +13,6 @@ pipeline {
             name: 'TARGET CLUSTER'
         )
     }
-    
-
-
 
     stages {
         stage('Checkout project') {
@@ -46,25 +43,25 @@ pipeline {
                     recordIssues(
                         tools: [pyLint(pattern: 'pylint.log')],
                         unstableTotalAll: 100
-                     )
+                    )
                 }
             }
         }
 
-  /*      stage('SonarQube Analysis') {
+        stage('SonarQube Analysis') {
             steps {
                 script {
                     withSonarQubeEnv('sonarqube_portal') {
                         // Run SonarQube scanner for code analysis
-                        sh '''sonar-scanner \
+                        sh '''${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=DevOps-project \
                             -Dsonar.sources=. '''
                     }
                 }
             }
-        }    */
+        }
 
-        /*stage("Testing with pytest") {
+        stage('Testing with pytest') {
             steps {
                 script {
                     withPythonEnv('python3') {
@@ -72,15 +69,7 @@ pipeline {
                     }
                 }
             }
-        }*/
-         stage('Testing with pytest') {
-            steps {
-                sh 'python3 -m pytest'
-                sh 'python3 test_app.py'
-            }
         }
- 
-        
 
         stage('Clean Up') {
             steps {
@@ -89,22 +78,8 @@ pipeline {
                 sh returnStatus: true, script: 'docker rmi -f ${JOB_NAME}'
             }
         }
-        
-      stage('SonarQube Analysis') {
-            steps {
-                script {
-                    withSonarQubeEnv('sonarqube_portal') {
-                        // Run SonarQube scanner for code analysis
-                        
-                        sh '''${scannerHome}/bin/sonar-scanner \
-                            -Dsonar.projectKey=DevOps-Project \
-                            -Dsonar.sources=.''
-                    }
-                }
-            }
-       
 
-        /*stage('Build image') {
+        stage('Build image') {
             steps {
                 script {
                     img = registry + ":${env.BUILD_ID}"
@@ -112,16 +87,7 @@ pipeline {
                     dockerImage = docker.build("${img}")
                 }
             }
-        }*/
-        /*stage('Build image') {
-            
-            steps{
-                    image 'shantanu2001/employee_portal'
-                
-            }
-          
         }
-
 
         stage('Push To Dockerhub') {
             steps {
@@ -137,6 +103,6 @@ pipeline {
             steps {
                 sh label: '', script: "docker run -d --name ${JOB_NAME} -p 5001:5000 ${img}"
             }
-        }*/
+        }
     }
 }
