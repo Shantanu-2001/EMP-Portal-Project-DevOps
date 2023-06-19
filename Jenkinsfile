@@ -79,7 +79,7 @@ pipeline {
             }
         }
 
-        stage('Build image') {
+       /* stage('Build image') {
             steps {
                 script {
                     img = registry + ":${env.BUILD_ID}"
@@ -104,5 +104,5 @@ pipeline {
         steps {
             sh label: '', script: "docker run -d --name ${JOB_NAME} -p 5001:5000 \"${img}\""
         }
-    }
+    } */
 }
