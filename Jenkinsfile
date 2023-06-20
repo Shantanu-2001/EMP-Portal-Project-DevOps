@@ -76,7 +76,7 @@ pipeline {
             }
         }
 
-       /* stage('Build image') {
+        stage('Build image') {
             steps {
                 script {
                     img = registry + ":${env.BUILD_ID}"
