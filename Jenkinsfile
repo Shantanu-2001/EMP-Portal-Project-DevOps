@@ -63,11 +63,8 @@ pipeline {
 
         stage('Testing with pytest') {
             steps {
-                script {
-                    withPythonEnv('python3') {
-                        sh 'pytest test_app.py'
-                    }
-                }
+                        sh 'python3 -m pytest'
+                        sh 'python3 test_app.py'
             }
         }
 
