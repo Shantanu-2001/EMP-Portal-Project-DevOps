@@ -1,5 +1,6 @@
 def img
-
+def username = "shantanu2001"
+def password = "shantanu@rana"
 pipeline {
     environment {
         scannerHome = tool 'sonar'
@@ -85,7 +86,7 @@ pipeline {
 
         stage('Push To Dockerhub') {
     steps {
-            sh "docker login -u ${shantanu2001} -p ${shantanu@rana}"
+            sh "docker login -u ${username} -p ${password}"
             sh "docker push shantanu2001/flask_application"
         }
     }
