@@ -3,7 +3,11 @@ def img
 pipeline {
     environment {
         scannerHome = tool 'sonar'
-         DOCKER_REGISTRY_CREDENTIAL = credentials('shantanu@2001')
+        def registryCredential = [
+    usernameVariable: credentials('shantanu@2001'),
+    passwordVariable: credentials('shantanu@rana')
+]
+
     } 
     agent any
 
@@ -87,7 +91,7 @@ pipeline {
         stage('Push To Dockerhub') {
             steps{
                  script {
-                    docker.withRegistry('https://hub.docker.com', DOCKER_REGISTRY_CREDENTIAL) {
+                    docker.withRegistry('https://hub.docker.com', registryCredential) {
                        sh 'docker push shantanu2001/flask_application:latest'
     
             /*steps {
