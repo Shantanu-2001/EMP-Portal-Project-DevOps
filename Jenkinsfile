@@ -79,9 +79,9 @@ pipeline {
         stage('Build image') {
             steps {
                 script{
-                    img = registry + ":${env.BUILD_ID}"
-                    println("${img}")
-                    dockerImage = docker.build("${img}")
+                    img = shantanu2001/flask_application + ":${env.BUILD_ID}"
+                    println("${f663e74c5820}")
+                    dockerImage = docker.build("${f663e74c5820}")
                 }
             }
         }
