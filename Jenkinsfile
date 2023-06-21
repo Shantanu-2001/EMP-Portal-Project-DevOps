@@ -85,10 +85,8 @@ pipeline {
 
         stage('Push To Dockerhub') {
             steps {
-                script {
                     docker.withRegistry([ credentialsId: "shantanu2001", url: "https://hub.docker.com/repository/docker/shantanu2001/flask_application" ]) {
                         dockerImage.push()
-                    }
                 }
             }
         }
