@@ -86,7 +86,7 @@ pipeline {
         stage('Push To Dockerhub') {
             steps {
                 script {
-                    docker.withRegistry('https://hub.docker.com/repository/docker/shantanu2001/flask_application', registryCredential) {
+                    docker.withRegistry([ credentialsId: "shantanu2001", url: "https://hub.docker.com/repository/docker/shantanu2001/flask_application" ]) {
                         dockerImage.push()
                     }
                 }
@@ -94,10 +94,10 @@ pipeline {
         }
     
 
-    stage('Deploy to containers') {
+   /* stage('Deploy to containers') {
         steps {
             sh label: '', script: "docker run -d --name ${JOB_NAME} -p 5001:5000 \"${img}\""
         }
-    }
+    }*/
 }
 }
