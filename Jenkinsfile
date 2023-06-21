@@ -85,8 +85,7 @@ pipeline {
 
         stage('Push To Dockerhub') {
     steps {
-        withCredentials([usernamePassword(credentialsId: 'dckr_pat_kU1_C8pF2A5nD4-lr4-UzuJrLxI', username: 'shantanu@2001', passwordVariable: 'shantanu@rana')]) {
-            sh "docker login -u ${username} -p ${password}"
+            sh "docker login -u ${shantanu2001} -p ${shantanu@rana}"
             sh "docker push shantanu2001/flask_application"
         }
     }
