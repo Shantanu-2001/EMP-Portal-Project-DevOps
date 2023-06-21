@@ -85,7 +85,7 @@ pipeline {
 
         stage('Push To Dockerhub') {
             steps {
-                        sh 'docker login'
+                        sh 'docker login -u shantanu2001 -p shantanu@rana'
                         sh 'docker push shantanu2001/flask_application'
                 }
         }
