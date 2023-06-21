@@ -85,10 +85,9 @@ pipeline {
 
         stage('Push To Dockerhub') {
             steps {
-                    docker.withRegistry('https://hub.docker.com/repository/docker/shantanu2001/flask_application') {
+                        sh 'docker login'
                         sh 'docker push shantanu2001/flask_application'
                 }
-            }
         }
     
 
