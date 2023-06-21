@@ -89,10 +89,7 @@ pipeline {
                     docker.withRegistry('https://hub.docker.com/repository/docker/shantanu2001/flask_application') {
                         dockerImage.push()
                     }
-
-                    /*docker.withRegistry([ credentialsId: "shantanu2001", url: "https://hub.docker.com/repository/docker/shantanu2001/flask_application" ]) {
-                        dockerImage.push()
-                }*/
+                }
             }
         }
     
