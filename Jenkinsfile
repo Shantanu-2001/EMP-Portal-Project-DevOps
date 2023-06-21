@@ -3,6 +3,7 @@ def img
 pipeline {
     environment {
         scannerHome = tool 'sonar'
+         DOCKER_REGISTRY_CREDENTIAL = credentials('shantanu@2001')
     } 
     agent any
 
@@ -84,11 +85,20 @@ pipeline {
         }
 
         stage('Push To Dockerhub') {
-            steps {
+            steps{
+                 script {
+                    docker.withRegistry('https://hub.docker.com', DOCKER_REGISTRY_CREDENTIAL) {
+                       sh 'docker push shantanu2001/flask_application:latest'
+    
+            /*steps {
                         sh 'docker login -u shantanu2001 -p shantanu@rana'
                         sh 'docker push shantanu2001/flask_application:latest'
-                }
+                }*/
+                 }
+            }
         }
+        }
+        
     
 
    /* stage('Deploy to containers') {
