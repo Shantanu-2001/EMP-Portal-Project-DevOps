@@ -83,16 +83,16 @@ pipeline {
             }
         }
 
-        /*stage('Push To Dockerhub') {
+        stage('Push To Dockerhub') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
+                    docker.withRegistry('https://hub.docker.com/repository/docker/shantanu2001/flask_application', registryCredential) {
                         dockerImage.push()
                     }
                 }
             }
         }
-    }
+    
 
     stage('Deploy to containers') {
         steps {
