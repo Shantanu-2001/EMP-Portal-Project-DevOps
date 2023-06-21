@@ -79,7 +79,7 @@ pipeline {
         stage('Build image') {
             steps {
                 script{
-                    img = shantanu2001/flask_application + ":${env.BUILD_ID}"
+                    img = "shantanu2001/flask_application:${env.BUILD_ID}"
                     println("${f663e74c5820}")
                     dockerImage = docker.build("${f663e74c5820}")
                 }
