@@ -96,6 +96,7 @@ pipeline {
 
         stage('Deploy to containers') {
             steps {
+                sh "docker login -u ${username} -p ${password}"
                 sh "sudo docker run -it -p 5000:5000 -d flask-app"
             }
         }
