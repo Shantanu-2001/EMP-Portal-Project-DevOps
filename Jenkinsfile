@@ -96,9 +96,10 @@ pipeline {
         
     
 
-   /* stage('Deploy to containers') {
+       stage('Deploy to containers') {
         steps {
-            sh label: '', script: "docker run -d --name ${JOB_NAME} -p 5001:5000 \"${img}\""
+            
+            sh "sudo docker run -it -p 5000:5000 -d flask-app"
         }
-    }*/
+    }
 }
