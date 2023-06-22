@@ -1,6 +1,7 @@
 def img
 def username = "shantanu2001"
 def password = "shantanu@rana"
+
 pipeline {
     environment {
         scannerHome = tool 'sonar'
@@ -49,7 +50,8 @@ pipeline {
             }
         }
 
-       /* stage('SonarQube Analysis') {
+        /*
+        stage('SonarQube Analysis') {
             steps {
                 script {
                     withSonarQubeEnv('sonarqube_portal') {
@@ -60,12 +62,13 @@ pipeline {
                     }
                 }
             }
-        } */
+        }
+        */
 
         stage('Testing with pytest') {
             steps {
-                        sh 'python3 -m pytest'
-                        sh 'python3 test_app.py'
+                sh 'python3 -m pytest'
+                sh 'python3 test_app.py'
             }
         }
 
@@ -79,27 +82,22 @@ pipeline {
 
         stage('Build image') {
             steps {
-                sh 'docker build -t flask-app . '
-
+                sh 'docker build -t flask-app .'
             }
         }
 
         stage('Push To Dockerhub') {
-    steps {
-            sh "docker tag 246638f09d31 shantanu2001/flask_application"
-            sh "docker login -u ${username} -p ${password}"
-            sh "docker push shantanu2001/flask_application"
+            steps {
+                sh "docker tag 246638f09d31 shantanu2001/flask_application"
+                sh "docker login -u ${username} -p ${password}"
+                sh "docker push shantanu2001/flask_application"
+            }
         }
-    }
-}
 
-        
-    
-
-       stage('Deploy to containers') {
-        steps {
-            
-            sh "sudo docker run -it -p 5000:5000 -d flask-app"
+        stage('Deploy to containers') {
+            steps {
+                sh "sudo docker run -it -p 5000:5000 -d flask-app"
+            }
         }
     }
 }
