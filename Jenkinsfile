@@ -50,7 +50,7 @@ pipeline {
             }
         }
 
-        /*
+    
         stage('SonarQube Analysis') {
             steps {
                 script {
@@ -63,7 +63,7 @@ pipeline {
                 }
             }
         }
-        */
+        
 
         stage('Testing with pytest') {
             steps {
