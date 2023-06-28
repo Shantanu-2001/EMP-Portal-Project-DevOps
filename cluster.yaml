@@ -23,7 +23,7 @@ nodeGroups:
   - name: public-workers-node
     instanceType: t3.medium
     desiredCapacity: 2
--  name: private-workers-node
+ -  name: private-workers-node
     instanceType: t3.medium
     desiredCapacity: 1
     privateNetworking: true
