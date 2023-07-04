@@ -88,7 +88,7 @@ pipeline {
 
         stage('Push To Dockerhub') {
             steps {
-                sh "docker tag latest shantanu2001/new_flask_app"
+                sh "docker tag flask-app shantanu2001/new_flask_app:latest"
                 sh "docker login -u ${username} -p ${password}"
                 sh "docker push shantanu2001/new_flask_app"
             }
