@@ -88,9 +88,9 @@ pipeline {
 
         stage('Push To Dockerhub') {
             steps {
-                sh "docker tag 246638f09d31 shantanu2001/flask_application"
+                sh "docker tag 246638f09d31 shantanu2001/new_flask_app"
                 sh "docker login -u ${username} -p ${password}"
-                sh "docker push shantanu2001/flask_application"
+                sh "docker push shantanu2001/new_flask_app"
             }
         }
 
