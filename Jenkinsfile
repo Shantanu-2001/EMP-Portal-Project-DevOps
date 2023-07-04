@@ -4,7 +4,7 @@ def password = "shantanu@rana"
 
 pipeline {
     environment {
-        scannerHome = tool 'sonar'
+        /*scannerHome = tool 'sonar'*/
     } 
     agent any
 
