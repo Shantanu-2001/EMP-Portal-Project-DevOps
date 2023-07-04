@@ -1,3 +1,7 @@
+"""
+Module-level docstring describing the purpose of the module.
+"""
+
 import pytest
 from models import models
 from app import app, db
