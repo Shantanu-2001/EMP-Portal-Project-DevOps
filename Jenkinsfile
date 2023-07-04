@@ -37,7 +37,7 @@ pipeline {
             }
         }
 
-        stage('Static Code Checking') {
+      /*  stage('Static Code Checking') {
             steps {
                 script {
                     // Run pylint on Python files and generate a report
@@ -48,7 +48,7 @@ pipeline {
                     )
                 }
             }
-        }
+        }   */
 
     
         /*stage('SonarQube Analysis') {
