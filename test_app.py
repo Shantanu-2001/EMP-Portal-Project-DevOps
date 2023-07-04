@@ -2,7 +2,6 @@
 Module-level docstring describing the purpose of the module.
 """
 
-import pytest
 from models import models
 from app import app, db
 
@@ -81,3 +80,4 @@ def test_delete(test_client):
     response = test_client.post('/delete', data=test_data)
     assert response.status_code == 200
     assert b"Sorry, the employee does not exist." in response.data
+
