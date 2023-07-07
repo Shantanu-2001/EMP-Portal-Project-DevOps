@@ -41,7 +41,7 @@ spec:
   rules:
     - http:
         paths:
-          - path: /my-flask-app
+          - path: /
             pathType: Prefix
             backend:
               service:
