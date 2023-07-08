@@ -57,7 +57,7 @@ pipeline {
                     withSonarQubeEnv('sonarqube_portal') {
                         // Run SonarQube scanner for code analysis
                         sh '''${scannerHome}/bin/sonar-scanner \
-                            -Dsonar.projectKey=DevOps-project \
+                            -Dsonar.projectKey=DevOps-project-new \
                             -Dsonar.sources=. '''
                     }
                 }
